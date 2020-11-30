@@ -1,0 +1,89 @@
+<html>
+
+<head>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+
+    <style>
+        html {
+            font-family: Avenir;
+            letter-spacing: 10px;
+            font-size: 45px;
+            background: #00b140;
+            // background: #0047bb;
+        }
+        
+
+        p {
+            display: inline-block;
+            margin: 0;
+            padding: 12px 100px 10px 100px;
+        }
+
+        #text {
+            position: relative;
+            line-height: 60px;
+            margin-top: 40vh;
+            color: white;
+        }
+
+        #uno {
+            font-size: 60px;
+            font-weight: normal;
+            background: #1F1F1F;
+            border-bottom: 10px solid;
+            border-image-slice: 1;
+            border-image-source: linear-gradient(to left, transparent, #45AEC4, transparent);
+            transform: translateX(-100%);
+            position: relative;
+            z-index: 1;
+        }
+
+        span {
+            font-weight: bolder;
+        }
+
+        #dos {
+            font-weight: lighter;
+            opacity: 0;
+            transform: translateY(-100%);
+        }
+
+        #x {
+            display: inline-block;
+            transform: scale(10);
+            opacity: 0;
+        }
+
+        #hide {
+            background: #00b140;
+            height: 200px;
+            width: 30px;
+            position: absolute;
+            top: 0;
+            left: -10px;
+            z-index: 10;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="text">
+        <p id="uno">PROGRAMADOR <span id="x">X</span></p>
+        <p id="dos">XAVIER REYES OCHOA</p>
+        <div id="hide"></div>
+    </div>
+    <script>
+        setTimeout(()=>{
+            const tl = gsap.timeline();
+            tl.to("#uno", { duration: .5, x: 0, ease: 'expo' });
+            tl.to("#x", { duration: .5, scale: 1, opacity: 1, ease: 'expo' },'-=.5');
+            tl.to("#dos", { duration: .5, y: 0, opacity: 1,  ease: 'expo' })
+            tl.to("#dos", { delay: 3, duration: .5, y: '-100%', opacity: 0,  ease: 'expo' })
+            tl.to("#uno", { duration: .75, x: '-100%', opacity: 0, ease: 'expo' }, '-=.3');
+
+        }, 1000)
+    </script>
+</body>
+
+</html>

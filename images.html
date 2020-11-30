@@ -1,0 +1,36 @@
+<html>
+
+<head>
+
+    <style>
+        html {
+            background: #00b140;
+            //background: #0047bb;
+        }
+
+        #icon {
+            display: block;
+            width: 400px;
+            //max-height: 400px;
+            margin: 0 auto;
+            margin-top: 20vh;
+            transform: scale(0);
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <img id="icon" src="http://www.xaviro.com/assets/img/skills/bash.svg" />
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+    <script>
+        setTimeout(()=>{
+            const tl = gsap.timeline();
+            tl.to("#icon", { duration: .5, scale: 1, ease: 'expo' });
+            tl.to("#icon", { scale: 0, delay: 3, ease: 'expo' })
+        }, 1000)
+    </script>
+</body>
+
+</html>
